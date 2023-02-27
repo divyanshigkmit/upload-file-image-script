@@ -37,7 +37,6 @@ module.exports = (sequelize) => {
     },
     {
       sequelize,
-      paranoid: true,
       modelName: "Employee",
       tableName: "employee",
     }
