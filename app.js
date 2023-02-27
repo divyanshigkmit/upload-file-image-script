@@ -3,6 +3,8 @@ const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
 
+const routes = require("./feedDataIntoDb");
+
 const app = express();
 app.use(express.json());
 
@@ -19,6 +21,8 @@ app.use(compression());
 app.use("/health", (_req, res) => {
   res.send({ message: "Application runing successfully!" });
 });
+
+app.use("/api", routes);
 
 // 404 Error Handling
 app.use((req, res) => {
